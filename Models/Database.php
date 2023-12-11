@@ -5,7 +5,7 @@ namespace Models;
 use PDO;
 use PDOException;
 
-class Database
+class Databa
 {
     protected static $_dbInstance;
     protected  $_dbHandle;
