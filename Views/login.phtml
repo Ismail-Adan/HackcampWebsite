@@ -1,0 +1,40 @@
+<?php
+require_once ("Templates/header.phtml");
+?>
+
+<?php
+if (!$_SESSION['isLoggedIn']) { echo '
+<body>
+<div class="container-fluid">
+    <form class="loginForm mx-auto" action="" method="post">
+        <h1 class="text-center">Log In</h1>
+
+
+        <div class="input-group input-group-lg mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Username</span>
+            <input class="form-control" aria-label="Sizing example input" name="username"
+                   type="text" placeholder="Enter username"
+                   value="'; if(isset($_POST['username'])){echo $_POST['username'];}echo'" required>
+        </div>
+        <p class="error username-error">'; echo $view->username_error; echo'</p>
+
+        <div class="input-group input-group-lg has-validation mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-lg"><label
+                            for="validationServer05">Password</label></span>
+            <input class="form-control" aria-label="Sizing example input"
+                   aria-describedby="validationServer05Feedback"
+                   name="password" type="password" placeholder="Enter password"
+                   value="'; if(isset($_POST['password'])){echo $_POST['password'];} echo'" required>
+        </div>
+        <p class="error password-error">'; echo $view->password_error; echo '</p>
+
+        <p class="error emptyfields-error">'; echo $view->emptyFields_error;echo '</p>
+
+        <div class="login-box">
+            <button class="btn btn-primary loginButton" type="submit" name="login">Log In</button>
+        </div>
+    </form>
+</div>
+</body>
+
+    ';} ?>
